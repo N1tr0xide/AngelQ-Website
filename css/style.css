@@ -1,28 +1,108 @@
 html, body {
-    margin: 0;
-    padding: 0;
     height: 100%;
     width: 100%;
-}
-    
-img {
-    border-radius: 12px;
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+    font-family: sans-serif;
+    background-color: #000000;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-image: radial-gradient(circle at top right, #993b85 0%, #2f3aa3 50%, #1f5557 100%),
+            radial-gradient(circle at 20% 80%, #993b85 0%, #2f3aa3 50%, #1f5557 100%);
 }
 
-.fullscreen-wrapper {
+.content{
+    position: relative;
+    z-index: 1;
+    object-fit: contain;
+    object-position: center;
+}
+
+/*Header*/
+header {
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
-    overflow: hidden;
-  }
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    padding: .75rem 1rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
 
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1200px;
+    flex-wrap: wrap;
+}
 
-.fullscreen-wrapper img {
+nav img {
+    height: 40px;
+    scale: 150%;
+    margin-right: .75rem;
+}
+
+nav > a {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    margin-right: auto;
+    display: flex;
+    align-items: center;
+    transition: color 0.3s ease;
+}
+
+nav > a:hover {
+    color: #e767bc; /* Accent color on hover */
+}
+
+nav div {
+    display: flex;
+    gap: 3rem;
+    flex-shrink: 0;
+}
+
+nav div a {
+    font-size: 1.1rem;
+    color: white;
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+nav div a:hover {
+    color: #e767bc; /* Accent color on hover */
+}
+
+/* Stars Background */
+canvas {
+    position: fixed;
     width: 100%;
     height: 100%;
-    object-fit: contain;
-    object-position: center;
-  }
+    z-index: 0;
+}
+
+/* Scanlines */
+.scan-lines{
+    background: linear-gradient(#ffffff, #ffffff 30%, transparent 50%, transparent 100%);
+    background-size: 100% 7px;
+    opacity: .05;
+    animation: pan-overlay 16s cubic-bezier(1,2,1,1) infinite;
+    z-index:999;
+    pointer-events:none;
+    position:fixed;
+    inset:0
+}
+@keyframes pan-overlay {
+    0% {
+        background-position:0 0
+    }
+    to {
+        background-position:0 -100%
+    }
+}
