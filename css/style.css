@@ -31,53 +31,56 @@ header {
     z-index: 1000;
 }
 
-header nav {
+.nav-container {
+    max-width: fit-content;
+    margin: 0 auto;
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1200px;
     flex-wrap: wrap;
-    padding: .5rem;
+    gap: 1rem 20rem;
 }
 
-header nav img {
+/* Logo & Name */
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+}
+
+.brand img {
     height: 40px;
+    width: auto;
     scale: 150%;
-    margin-right: .75rem;
 }
 
-header nav > a {
-    text-decoration: none;
+.name {
     font-size: 1.5rem;
     font-weight: bold;
     color: white;
-    transition: color 0.3s ease;
-    flex-shrink: 1;
-    flex-grow: 1;
-    min-width: 0;
-}
-
-header nav div {
-    display: flex;
-    flex-shrink: 1;
-    flex-grow: 1;
-    min-width: 0;
-    justify-content: flex-end;
-    gap: 2rem;
-}
-
-header nav div a {
     text-decoration: none;
+}
+
+/* Nav Links */
+.nav-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.5rem;
+    min-width: 0;
+    flex: 1 1 auto;
+}
+
+.nav-links a {
     font-size: 1.1rem;
-    color: white;
     font-weight: bold;
+    color: white;
+    text-decoration: none;
     transition: color 0.3s ease;
 }
 
-header nav div a:hover, header nav > a:hover {
-    color: #e767bc; /* Accent color on hover */
+.nav-container a:hover{
+    color: #e767bc;
 }
 
 /* Stars Background */
