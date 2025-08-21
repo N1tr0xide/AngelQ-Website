@@ -8,7 +8,7 @@ html, body {
     background-size: cover;
     background-image: radial-gradient(circle at top right, #993b85 0%, #2f3aa3 50%, #1f5557 100%),
             radial-gradient(circle at 20% 80%, #993b85 0%, #2f3aa3 50%, #1f5557 100%);
-    object-fit: contain;
+    overflow-x: hidden;
 }
 
 .content{
@@ -31,7 +31,7 @@ header {
     z-index: 1000;
 }
 
-nav {
+header nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -39,43 +39,44 @@ nav {
     margin-right: auto;
     max-width: 1200px;
     flex-wrap: wrap;
+    padding: .5rem;
 }
 
-nav img {
+header nav img {
     height: 40px;
     scale: 150%;
     margin-right: .75rem;
 }
 
-nav > a {
+header nav > a {
+    text-decoration: none;
     font-size: 1.5rem;
     font-weight: bold;
     color: white;
-    text-decoration: none;
-    margin-right: auto;
-    display: flex;
-    align-items: center;
     transition: color 0.3s ease;
+    flex-shrink: 1;
+    flex-grow: 1;
+    min-width: 0;
 }
 
-nav > a:hover {
-    color: #e767bc; /* Accent color on hover */
-}
-
-nav div {
+header nav div {
     display: flex;
-    gap: 3rem;
+    flex-shrink: 1;
+    flex-grow: 1;
+    min-width: 0;
+    justify-content: flex-end;
+    gap: 2rem;
 }
 
-nav div a {
+header nav div a {
+    text-decoration: none;
     font-size: 1.1rem;
     color: white;
     font-weight: bold;
-    text-decoration: none;
     transition: color 0.3s ease;
 }
 
-nav div a:hover {
+header nav div a:hover, header nav > a:hover {
     color: #e767bc; /* Accent color on hover */
 }
 
