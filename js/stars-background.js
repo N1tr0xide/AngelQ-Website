@@ -100,8 +100,8 @@ function recycleStar(star) {
 
 function resize() {
     scale = window.devicePixelRatio || 1;
-    width = window.innerWidth;
-    height = window.innerHeight;
+    width = window.visualViewport?.width || window.innerWidth;
+    height = window.visualViewport?.height || window.innerHeight;
 
     canvas.style.width = width + 'px';
     canvas.style.height = height + 'px';
