@@ -29,9 +29,9 @@ window.ontouchmove = onTouchMove;
 document.onmouseleave = onMouseLeave;
 document.ontouchend = onMouseLeave;
 
-window.addEventListener('orientationchange', () => {
-  setTimeout(resize, 100);
-});
+if (window.visualViewport) {
+  window.visualViewport.addEventListener('resize', () => { resize(); });
+}
 
 function generateStars() {
     for (let i = 0; i < STAR_COUNT; i++) {
