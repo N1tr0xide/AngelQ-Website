@@ -124,10 +124,9 @@ canvas {
 .home {
     display: flex;
     flex-direction: row;
-    align-items: flex-end;
     justify-content: center;
+    align-items: center;
     max-width: fit-content;
-    display: block;
     margin-left: auto;
     margin-right: auto;
     margin-top: 70px;
@@ -140,4 +139,6 @@ canvas {
 
 .home img {
     margin-top: auto;
+    max-width: 30%;
+    height: auto;
 }
