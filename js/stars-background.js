@@ -96,12 +96,14 @@ function recycleStar(star) {
 
 function resize() {
     scale = window.devicePixelRatio || 1;
+    width = window.innerWidth;
+    height = window.innerHeight;
 
-    width = window.innerWidth * scale;
-    height = window.innerHeight * scale;
-
-    canvas.width = width;
-    canvas.height = height;
+    canvas.style.width = width + 'px';
+    canvas.style.height = height + 'px';
+    canvas.width = width * scale;
+    canvas.height = height * scale;
+    context.setTransform(scale, 0, 0, scale, 0, 0);
 
     stars.forEach(placeStar);
 }
