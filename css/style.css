@@ -1,3 +1,11 @@
+:root {
+    --text-color: #ffffff;
+    --text-hover-color: #e767bc;
+    --gradient-color-0: #993b85;
+    --gradient-color-50: #2f3aa3;
+    --gradient-color-100: #1f5557;
+}
+
 html, body {
     margin: 0;
     padding: 0;
@@ -7,8 +15,10 @@ html, body {
     background-attachment: fixed;
     background-repeat: repeat;
     background-size: cover;
-    background-image: radial-gradient(circle at top right, #993b85 0%, #2f3aa3 50%, #1f5557 100%),
-            radial-gradient(circle at 20% 80%, #993b85 0%, #2f3aa3 50%, #1f5557 100%);
+    background-image: 
+        radial-gradient(circle at top right, var(--gradient-color-0) 0%, var(--gradient-color-50) 50%, var(--gradient-color-100) 100%),
+        radial-gradient(circle at 20% 80%, var(--gradient-color-0) 0%, var(--gradient-color-50) 50%, var(--gradient-color-100) 100%);
+    scroll-behavior: smooth;
     /*overflow-x: hidden;*/
 }
 
@@ -27,7 +37,7 @@ header {
     width: 100%;
     box-sizing: border-box;
     background-color: rgba(0, 0, 0, 0.3);
-    color: white;
+    color: var(--text-color);
     padding: .75rem 1rem;
     box-shadow: 0 0px 30px rgba(0, 0, 0, 0.85);
     border-bottom: 2px solid rgba(0, 0, 0, .25);
@@ -43,6 +53,10 @@ header {
     align-items: center;
     flex-wrap: wrap;
     gap: 1rem 20rem;
+}
+
+#header-spacer {
+  height: 0;
 }
 
 /* Logo & Name */
@@ -61,7 +75,7 @@ header {
 .name {
     font-size: 1.5rem;
     font-weight: bold;
-    color: white;
+    color: var(--text-color);
     text-decoration: none;
 }
 
@@ -78,13 +92,13 @@ header {
 .nav-links a {
     font-size: 1.1rem;
     font-weight: bold;
-    color: white;
+    color: var(--text-color);
     text-decoration: none;
     transition: color 0.3s ease;
 }
 
 .nav-container a:hover{
-    color: #e767bc;
+    color: var(--text-hover-color);
 }
 
 /* Stars Background */
@@ -98,7 +112,7 @@ canvas {
 
 /* Scanlines */
 .scan-lines{
-    background: linear-gradient(#ffffff, #ffffff 30%, transparent 50%, transparent 100%);
+    background: linear-gradient(var(--text-color), var(--text-color) 30%, transparent 50%, transparent 100%);
     background-size: 100% 7px;
     opacity: .05;
     animation: pan-overlay 16s cubic-bezier(1,2,1,1) infinite;
@@ -124,21 +138,41 @@ canvas {
 .home {
     display: flex;
     flex-direction: row;
-    justify-content: center;
+    justify-content: space-evenly;
     align-items: center;
     max-width: fit-content;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 70px;
-
-    box-sizing: border-box;
-    background-color: rgba(0, 0, 0, 0.3);
-    color: white;
-    padding: .75rem 1rem;
+    color: var(--text-color);
 }
 
 .home img {
     margin-top: auto;
-    max-width: 30%;
+    max-width: 25%;
     height: auto;
+    border-radius: 30%;       
+    border: 5px solid #333; 
+    object-fit: cover;
+}
+
+#home-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.home p {
+    margin: 4px 0;
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    text-shadow: 
+        -1.5px 1.5px 0 #000,
+        1.5px -1.5px 0 #000,
+        -1.5px  1.5px 0 #000,
+        1.5px  1.5px 0 #000;
+}
+
+#home-name {
+    font-size: 4rem;
 }
