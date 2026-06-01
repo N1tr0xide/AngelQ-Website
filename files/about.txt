@@ -1,0 +1,3 @@
+I’m Angel Quintero, a C#, Unity, and Unreal Engine programmer from Venezuela, now based in Raleigh, NC. I focus on building responsive gameplay systems, physics‑driven mechanics, and clean, scalable architectures for games and interactive experiences.
+\n
+My background includes an Associate’s degree in Simulation & Game Development and hands‑on work across vehicle physics, AI behavior, data‑driven systems, and custom tools in Unity, Unreal, Blender Python, and .NET. I love solving technical problems that blend engineering with creativity and bringing ideas to life through polished, intentional gameplay.
