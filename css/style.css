@@ -111,10 +111,13 @@ header {
 /* Stars Background */
 canvas {
     position: fixed;
-    display: block;
     width: 100vw;
     height: 100vh;
     z-index: 0;
+    will-change: transform;
+    transform: translate3d(0, 0, 0); 
+    backface-visibility: hidden;
+    pointer-events: none;
 }
 
 /* Scanlines */
@@ -126,7 +129,7 @@ canvas {
     z-index:999;
     pointer-events:none;
     position:fixed;
-    inset:0
+    inset: 0;
 }
 @keyframes pan-overlay {
     0% {
@@ -266,11 +269,6 @@ footer {
 
 footer p{
     font-size: medium;
-}
-
-/*Other*/
-.glass {
-    backdrop-filter: blur(1.5px);
 }
 
 .scrollmargin {

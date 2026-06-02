@@ -38,7 +38,8 @@ function generateStars() {
         stars.push({
             x: 0,
             y: 0,
-            z: STAR_MIN_SCALE + Math.random() * (1 - STAR_MIN_SCALE)
+            z: STAR_MIN_SCALE + Math.random() * (1 - STAR_MIN_SCALE),
+            alpha: 0.2 + 0.5 * Math.random() //save on rendering
         });
     }
 }
@@ -78,6 +79,7 @@ function recycleStar(star) {
     }
 
     star.z = STAR_MIN_SCALE + Math.random() * (1 - STAR_MIN_SCALE);
+    star.alpha = 0.2 + 0.5 * Math.random();
 
     if (direction === "z") {
         star.z = 0.1;
@@ -103,17 +105,14 @@ function resize() {
     width = window.visualViewport?.width || window.innerWidth;
     height = window.visualViewport?.height || window.innerHeight;
 
-    canvas.style.width = width + 'px';
-    canvas.style.height = height + 'px';
     canvas.width = width * scale;
     canvas.height = height * scale;
     context.setTransform(scale, 0, 0, scale, 0, 0);
-
     stars.forEach(placeStar);
 }
 
 function step() {
-    context.clearRect(0, 0, width, height);
+    context.clearRect(0, 0, canvas.width, canvas.height);
     update();
     render();
     requestAnimationFrame(step);
@@ -143,23 +142,22 @@ function update() {
 }
 
 function render() {
+    let tailX = velocity.x * STAR_TAIL_SIZE,
+        tailY = velocity.y * STAR_TAIL_SIZE;
+
+    // stroke() wont work on an invisible line
+    if (Math.abs(tailX) < 0.1) tailX = 0.1;
+    if (Math.abs(tailY) < 0.1) tailY = 0.1;
+
+    context.lineCap = "round";
+    context.strokeStyle = STAR_COLOR;
+    
     stars.forEach((star) => {
-        context.beginPath();
-        context.lineCap = "round";
         context.lineWidth = STAR_SIZE * star.z * scale;
-        context.globalAlpha = 0.2 + 0.5 * Math.random();
-        context.strokeStyle = STAR_COLOR;
+        context.globalAlpha = star.alpha;
 
         context.beginPath();
         context.moveTo(star.x, star.y);
-
-        let tailX = velocity.x * STAR_TAIL_SIZE,
-            tailY = velocity.y * STAR_TAIL_SIZE;
-
-        // stroke() wont work on an invisible line
-        if (Math.abs(tailX) < 0.1) tailX = 0.1;
-        if (Math.abs(tailY) < 0.1) tailY = 0.1;
-
         context.lineTo(star.x + tailX, star.y + tailY);
         context.stroke();
     });
