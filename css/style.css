@@ -318,7 +318,7 @@ canvas {
 }
 
 .btn-primary:hover {
-    background-color: #7375f7;
+    background-color: var(--text-hover-color)
 }
 
 @media (max-width: 900px) {
@@ -364,6 +364,7 @@ canvas {
     justify-content: center;
     width: 100px;
     height: 60px;
+    border-radius: 10px;
     text-decoration: none;
     transition: transform 0.2s ease;
 }
@@ -372,12 +373,19 @@ canvas {
     transform: translateY(-5px);
 }
 
-.contact-btn img {
-    width: 60px;
-    height: 60px;
+.icon {
     position: absolute;
-    filter: brightness(0) invert(1);
-    transition: opacity 0.15s ease;
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    background-color: #5b5ef4; /* your button purple */
+    -webkit-mask-size: contain;
+    mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    mask-repeat: no-repeat;
+    -webkit-mask-position: center;
+    mask-position: center;
+    transition: opacity 0.15s ease, background-color 0.15s ease;
 }
 
 .icon-hover {
@@ -390,7 +398,15 @@ canvas {
 
 .contact-btn:hover .icon-hover {
     opacity: 1;
+    background-color: var(--text-hover-color)
 }
+
+.icon-github-default   { -webkit-mask-image: url('../images/github-com.svg');          mask-image: url('../images/github-com.svg'); }
+.icon-github-hover     { -webkit-mask-image: url('../images/github-hover-com.svg');    mask-image: url('../images/github-hover-com.svg'); }
+.icon-linkedin-default { -webkit-mask-image: url('../images/linkedin-com.svg');        mask-image: url('../images/linkedin-com.svg'); }
+.icon-linkedin-hover   { -webkit-mask-image: url('../images/linkedin-hover-com.svg');  mask-image: url('../images/linkedin-hover-com.svg'); }
+.icon-email-default    { -webkit-mask-image: url('../images/email-com.svg');           mask-image: url('../images/email-com.svg'); }
+.icon-email-hover      { -webkit-mask-image: url('../images/email-open-com.svg');      mask-image: url('../images/email-open-com.svg'); }
 
 /* Footer*/
 footer {
