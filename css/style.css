@@ -244,12 +244,54 @@ canvas {
     box-shadow: var(--box-shadow);
     padding: 20px;
     border-radius: 20px;
-    max-width: 1600px;
+    max-width: 600px;
     margin: 0 auto;
     margin-top: 50px;
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.contact-buttons {
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.contact-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100px;
+    height: 60px;
+    text-decoration: none;
+    transition: transform 0.2s ease;
+}
+
+.contact-btn:hover {
+    transform: translateY(-5px);
+}
+
+.contact-btn img {
+    width: 60px;
+    height: 60px;
+    position: absolute;
+    filter: brightness(0) invert(1);
+    transition: opacity 0.15s ease;
+}
+
+.icon-hover {
+    opacity: 0;
+}
+
+.contact-btn:hover .icon-default {
+    opacity: 0;
+}
+
+.contact-btn:hover .icon-hover {
+    opacity: 1;
 }
 
 /* Footer*/
