@@ -6,6 +6,7 @@
         -1.5px  1.5px 0 #000,
         1.5px  1.5px 0 #000;
     --text-hover-color: #e767bc;
+    --button-default-color: #3c8f6b;
     --gradient-color-0: #993b85;
     --gradient-color-50: #2f3aa3;
     --gradient-color-100: #1f5557;
@@ -196,7 +197,7 @@ canvas {
     align-items: center;
 }
 
-#about h1, p, button {
+#about h1, p {
     font-size: 1.5rem;
     text-align: center;
     text-shadow: var(--text-shadow);
@@ -211,11 +212,28 @@ canvas {
     font-weight: normal;
 }
 
-#about button {
+.btn-resume.btn-primary {
+    display: inline-flex;
     align-items: center;
-    font-weight: normal;
-    color: #000000;
-    text-shadow: none;
+    justify-content: center;
+    gap: 8px;
+    font-weight: 600;
+    padding: 15px 25px;
+    font-size: 1.3rem;
+    background-color: var(--button-default-color);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+    line-height: 1;
+}
+
+.btn-resume:hover {
+    transform: scale(1.05);
+}
+
+.icon-download {
+    width: 40px;
+    height: 40px;
+    display: block;
+    flex-shrink: 0;
 }
 
 /* Projects */
@@ -307,7 +325,7 @@ canvas {
 
 .btn-primary {
     display: inline-block;
-    background-color: #5b5ef4;
+    background-color: var(--button-default-color);;
     color: var(--text-color);
     text-decoration: none;
     padding: 10px 18px;
@@ -378,7 +396,7 @@ canvas {
     display: inline-block;
     width: 50px;
     height: 50px;
-    background-color: #5b5ef4; /* your button purple */
+    background-color: var(--button-default-color);
     -webkit-mask-size: contain;
     mask-size: contain;
     -webkit-mask-repeat: no-repeat;
@@ -429,84 +447,4 @@ footer p{
 
 .scrollmargin {
     scroll-margin-top: var(--scroll-margin-top)
-}
-
-
-
-
-
-
-.duration-300 {
-  transition-duration: 300ms;
-}
-.transition-all {
-  transition-property: all;
-  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-  transition-duration: 150ms;
-}
-.shadow-md {
-  --tw-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
-  --tw-shadow-colored: 0 4px 6px -1px var(--tw-shadow-color), 0 2px 4px -2px var(--tw-shadow-color);
-  box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
-}
-.text-white {
-  --tw-text-opacity: 1;
-  color: rgb(255 255 255 / var(--tw-text-opacity, 1));
-}
-.font-semibold {
-  font-weight: 600;
-}
-.py-3 {
-  padding-top: 0.75rem;
-  padding-bottom: 0.75rem;
-}
-.px-6 {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-.bg-indigo-600 {
-    text-align: left;
-  --tw-bg-opacity: 1;
-  background-color: rgb(79 70 229 / var(--tw-bg-opacity, 1));
-}
-.rounded-full {
-  border-radius: 9999px;
-}
-.items-center {
-  align-items: center;
-}
-.transform {
-  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
-}
-.inline-flex {
-  display: inline-flex;
-}
-a {
-  color: inherit;
-  text-decoration: inherit;
-}
-*, ::after, ::before {
-  box-sizing: border-box;
-  border-width: 0;
-  border-style: solid;
-  border-color: #e5e7eb;
-}
-*, ::before, ::after {
-  --tw-border-spacing-x: 0;
-  --tw-border-spacing-y: 0;
-  --tw-translate-x: 0;
-  --tw-translate-y: 0;
-  --tw-rotate: 0;
-  --tw-skew-x: 0;
-  --tw-skew-y: 0;
-  --tw-scale-x: 1;
-  --tw-scale-y: 1;
-  --tw-scroll-snap-strictness: proximity;
-  --tw-ring-offset-width: 0px;
-  --tw-ring-offset-color: #fff;
-  --tw-ring-color: rgb(59 130 246 / 0.5);
-  --tw-ring-offset-shadow: 0 0 #0000;
-  --tw-ring-shadow: 0 0 #0000;
-  --tw-shadow: 0 0 #0000;
-  --tw-shadow-colored: 0 0 #0000;
 }
